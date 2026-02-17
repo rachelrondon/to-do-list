@@ -1,40 +1,32 @@
 import { useState } from 'react';
+import "./ToDoList.css";
 
 const ToDoList = () => {
 
-  const [toDo, setToDo] = useState("");
-  const [toDoList, setToDoList] = useState([]);
+  const [input, setInput] = useState("");
+  const [inputList, setInputList] = useState([]);
 
-  const addToDo = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const addToDo = [...toDoList, toDo];
-    setToDoList(addToDo);
-    setToDo("");
+    const addInput = [...inputList, input];
+    setInputList(addInput);
+    setInput("");
   };
 
+  console.log(inputList);
   return (
-    <div>
-        <form onSubmit={addToDo}>
+    <div className="layout">
+        <form onSubmit={handleSubmit}>
           <input 
-            value={toDo}
-            name="to do"
+            className="input-box"
+            value={input}
+            name="input"
             onChange={(e) => {
-              setToDo(e.target.value);
+              setInput(e.target.value);
             }}
           />
-          <button type="submit" />
+          <button type="submit">Submit</button>
         </form>
-        {toDoList.map((item) => {
-          return (
-            <div className="to-do">
-            <h2>{item}</h2>
-            <button 
-              className="remove">
-                remove
-              </button>
-            </div>      
-          )
-        })}
     </div>
   )
 };
