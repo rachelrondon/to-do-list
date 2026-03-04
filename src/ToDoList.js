@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { XCircleIcon } from '@heroicons/react/24/outline';
+import './ToDoList.css';
 
 const ToDoList = () => {
 
@@ -13,7 +15,7 @@ const ToDoList = () => {
   };
 
   return (
-    <div>
+    <div className="layout">
         <form onSubmit={addToDo}>
           <input 
             value={toDo}
@@ -27,11 +29,9 @@ const ToDoList = () => {
         {toDoList.map((item) => {
           return (
             <div className="to-do">
-            <h2>{item}</h2>
-            <button 
-              className="remove">
-                remove
-              </button>
+              <input type="checkbox" defaultChecked={false} />
+              <h2>{item}</h2>
+              <XCircleIcon className="remove"/>
             </div>      
           )
         })}

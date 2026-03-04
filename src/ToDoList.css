@@ -1,0 +1,16 @@
+.remove {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.to-do {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
